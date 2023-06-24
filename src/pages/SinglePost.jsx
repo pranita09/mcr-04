@@ -25,7 +25,7 @@ export const SinglePost = () => {
         <SideBar />
         <div className="bg-[white]">
           <div className="flex items-center justify-start my-6">
-            <div onClick={() => navigate(-1)}>
+            <div onClick={() => navigate(-1)} className="cursor-pointer">
               <BsArrowLeft className="mr-4 ml-4" />
             </div>
             <span>Post</span>

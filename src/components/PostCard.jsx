@@ -9,6 +9,7 @@ import {
 import { UserAvatar } from "./UserAvatar";
 import { useForum } from "../contexts/ForumContext";
 import { useNavigate } from "react-router-dom";
+import { getDate } from "../utils/getDate";
 
 export const PostCard = ({ post, singlePost }) => {
   const navigate = useNavigate();
@@ -32,7 +33,7 @@ export const PostCard = ({ post, singlePost }) => {
           <span className="text-[grey]">Posted By</span>
           <span className="text-[#3b82f6] font-bold">@{post?.username}</span>
           <BsDot />
-          <span className="text-[grey]">1 min</span>
+          <span className="text-[grey]">{getDate(post?.createdAt)}</span>
         </div>
         <div className="text-[1.15rem] font-bold py-2">{post.post}</div>
         <div className="flex justify-start items-center gap-2">

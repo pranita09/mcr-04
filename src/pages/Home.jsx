@@ -6,6 +6,8 @@ import { useForum } from "../contexts/ForumContext";
 export const Home = () => {
   const {
     state: { forumData },
+    sortPosts,
+    sortBy,
   } = useForum();
   return (
     <div>
@@ -15,7 +17,8 @@ export const Home = () => {
       <div className="grid sm:grid-cols-[15rem_1fr_15rem] w-[80%] m-auto">
         <SideBar />
         <div>
-          {forumData.posts?.map((post) => (
+          <span className="text-xl mx-4 mt-4">{sortBy} Posts</span>
+          {forumData.posts?.sort(sortPosts)?.map((post) => (
             <PostCard key={post.postId} post={post} />
           ))}
         </div>

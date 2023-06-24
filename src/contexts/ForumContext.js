@@ -10,32 +10,40 @@ const initialState = {
 const reducerFunc = (state, { type, payload }) => {
   switch (type) {
     case "UPVOTE":
-      console.log("upvote");
       return {
         ...state,
-        forumData: state.forumData.posts.map((post) =>
-          post.postId === payload
-            ? { ...post, upvotes: post.upvotes + 1 }
-            : post
-        ),
+        forumData: {
+          ...state.forumData,
+          posts: state.forumData.posts.map((post) =>
+            post.postId === payload
+              ? { ...post, upvotes: post.upvotes + 1 }
+              : post
+          ),
+        },
       };
     case "DOWNVOTE":
       return {
         ...state,
-        forumData: state.forumData.posts.map((post) =>
-          post.postId === payload
-            ? { ...post, downvotes: post.downvotes + 1 }
-            : post
-        ),
+        forumData: {
+          ...state.forumData,
+          posts: state.forumData.posts.map((post) =>
+            post.postId === payload
+              ? { ...post, downvotes: post.downvotes + 1 }
+              : post
+          ),
+        },
       };
     case "BOOKMARK":
       return {
         ...state,
-        posts: state.posts.map((post) =>
-          post.postId === payload
-            ? { ...post, isBookmarked: !post.isBookmarked }
-            : post
-        ),
+        forumData: {
+          ...state.forumData,
+          posts: state.forumData.posts.map((post) =>
+            post.postId === payload
+              ? { ...post, isBookmarked: !post.isBookmarked }
+              : post
+          ),
+        },
       };
     default:
       return state;

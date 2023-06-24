@@ -6,7 +6,7 @@ export const SortBar = () => {
     <div>
       <div className="py-2 px-4 border-[2px] bg-[#bae6fd] rounded-md">
         <select
-          className="bg-inherit outline-none"
+          className="bg-inherit outline-none w-full text-sm"
           value={sortBy}
           onChange={toggleSortBy}
         >

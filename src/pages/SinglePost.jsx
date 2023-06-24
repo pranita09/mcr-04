@@ -27,7 +27,7 @@ export const SinglePost = () => {
             </div>
             <span>Post</span>
           </div>
-          <PostCard post={currentPost} />
+          <PostCard post={currentPost} singlePost />
         </div>
       </div>
     </div>

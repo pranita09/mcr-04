@@ -10,7 +10,7 @@ import { UserAvatar } from "./UserAvatar";
 import { useForum } from "../contexts/ForumContext";
 import { useNavigate } from "react-router-dom";
 
-export const PostCard = ({ post, siglePostPage }) => {
+export const PostCard = ({ post, singlePost }) => {
   const navigate = useNavigate();
   const { dispatch } = useForum();
   return (
@@ -52,7 +52,7 @@ export const PostCard = ({ post, siglePostPage }) => {
         <div className="flex justify-between items-center w-full">
           <div
             className="cursor-pointer"
-            onClick={() => navigate(`/post/${post.postId}`)}
+            onClick={() => !singlePost && navigate(`/post/${post.postId}`)}
           >
             <GoComment className="text-xl" />
           </div>
